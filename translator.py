@@ -1,5 +1,6 @@
 import json
 import re
+import os
 
 TRANSLATIONS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lolcat_language_mapping.json")
 
@@ -32,7 +33,7 @@ def translate_english_to_lolcat(english_text: str) -> str:
                 
                 translation_found = False
                 
-                for translation in lolcat_data:
+                for translation in translations:
                     if str(word).lower() == str(translation["q"]).lower():
                         translation_found = True
                         translated_words.append(translation["r"])
